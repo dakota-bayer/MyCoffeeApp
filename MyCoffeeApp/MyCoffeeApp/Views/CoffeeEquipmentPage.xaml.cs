@@ -15,6 +15,14 @@ namespace MyCoffeeApp.Views
         public CoffeeEquipmentPage()
         {
             InitializeComponent();
+            LabelCount.Text = "Hello from the Code Behind!";
+        }
+
+        int count = 0;
+        private void ButtonClick_Clicked(object sender, EventArgs e)
+        {
+            count++;
+            LabelCount.Text = $"You clicked {count} time(s).";
         }
     }
 }
