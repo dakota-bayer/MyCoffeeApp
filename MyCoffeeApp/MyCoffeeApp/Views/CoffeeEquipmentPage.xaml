@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ViewModels="clr-namespace:MyCoffeeApp.ViewModels"
              x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage"
+             x:DataType="ViewModels:CoffeeEquipmentViewModel"
              BackgroundColor="OrangeRed">
+
+    <ContentPage.BindingContext>
+        <ViewModels:CoffeeEquipmentViewModel />
+    </ContentPage.BindingContext>
 
         <Grid RowDefinitions="*,Auto, Auto, *">
             
@@ -10,14 +16,13 @@
                 x:Name="LabelCount"
                 Grid.Row="1"
                 BackgroundColor="#BE9696"
-                Text="Welcome to Xamarin.Forms!"
+                Text="{Binding CountDisplay}"
                 FontSize="Large"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             
             <Button
-                x:Name="ButtonClick"
-                Clicked="ButtonClick_Clicked"
+                Command="{Binding IncreaseCount}"
                 Grid.Row="2"
                 Text="Click me" />
             
